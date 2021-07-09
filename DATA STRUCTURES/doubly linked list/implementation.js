@@ -89,14 +89,28 @@ class DoublyLinkedList{
         }
         else
         {
-            let i=0;
-            let cmp = this.head;
-            while(i!==index)
+            if(index <= this.length/2)
             {
-                cmp = cmp.next;
-                i++;
+                let i=0;
+                let cmp = this.head;
+                while(i!==index)
+                {
+                    cmp = cmp.next;
+                    i++;
+                }
+                return cmp;
             }
-            return cmp;
+            else{
+                let i = this.length-1;
+                let cmp = this.tail;
+                while(i!==index)
+                {
+                    cmp = cmp.prev;
+                    i--;
+                }
+                return cmp;
+            }
+                
         }
     }
     set(value,index)
@@ -178,4 +192,4 @@ arr.push(25);
 // }
 arr.remove(1);
 
-console.log(arr);
+console.log(arr.get(4));
